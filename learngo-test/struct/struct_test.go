@@ -1,0 +1,25 @@
+package _struct
+
+import "testing"
+
+type Rectangle struct {
+	Width  float64
+	Height float64
+}
+
+func TestPerimeter(t *testing.T) {
+	rectangle := Rectangle{10.0, 10.0}
+	got := Perimeter(rectangle)
+	want := 40.0
+	if got != want {
+		t.Errorf("got %.2f want %.2f", got, want)
+	}
+}
+
+func Perimeter(rectangle Rectangle) float64 {
+	return 2 * (rectangle.Width + rectangle.Height)
+}
+
+func Area(rectangle Rectangle) float64 {
+	return rectangle.Width * rectangle.Height
+}
